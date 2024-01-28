@@ -25,7 +25,7 @@ Do a total of N_RUNS runs and save each run in a separate folder
 N_RUNS = 5
 N_EPOCHS_TRAIN = 20
 N_STEPS_PER_EPOCH_TRAIN = 100000
-N_EPOCHS_EVAL = 25
+N_EPOCHS_EVAL = 25      
 N_STEPS_PER_EPOCH_EVAL = 100000
 MODEL_CLASS = DoubleDQN
 STATES = "ood"
@@ -48,7 +48,7 @@ for i in range(N_RUNS):
     #initialize fqe
     fqe = evaluate(
         MODEL_CLASS, 
-        f"{train_label}/model_{N_EPOCHS_EVAL * N_STEPS_PER_EPOCH_EVAL}.pt",
+        f"{train_label}/model_{N_EPOCHS_TRAIN * N_STEPS_PER_EPOCH_EVAL}.pt",   #N_EPOCHS_EVAL改成N_EPOCHS_TRAIN
         f"{label}/FQE",
         STATES,
         REWARDS,

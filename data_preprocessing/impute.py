@@ -20,6 +20,6 @@ IMPUTED_DATAFRAME_PATH      = os.path.join(DATA_FOLDER_PATH,"imputed.pkl")
 # Get data into pandas dataframe
 df = pd.read_csv(DATA_TABLE_FILE_NAME)
 # Impute missing values
-df = preprocess_imputation(df, IMPUTATION_N, IMPUTATION_K)
+df = preprocess_imputation(df, IMPUTATION_N, IMPUTATION_K)  #根据缺失率分离数据为需要进行SAH插补的 df_sah 和需要进行KNN插补的 df_knn
 df = df.dropna()
 df.to_pickle(IMPUTED_DATAFRAME_PATH)

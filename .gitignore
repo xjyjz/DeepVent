@@ -10,3 +10,5 @@ DeepVent.egg-info
 env
 test.py
 *.DS_Store
+d3rlpy_logs/
+data_preprocessing/

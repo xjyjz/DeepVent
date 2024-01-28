@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from copy import deepcopy
-import keras
+# import keras
 from sklearn.preprocessing import StandardScaler
 from functools import partial
 from tqdm import tqdm
@@ -57,7 +57,7 @@ def build_trajectories(df,state_space,action_space):
   param df: the dataframe you want to build trajectories from
   param state_space: the columns of the daataframe you want to include in your state space
   '''
-  
+  #计算数据的均值和标准差，然后进行标准化处理，使数据的均值为 0，标准差为 1。
   scaler = StandardScaler()
   toscale = df[state_space]
   df[state_space] = scaler.fit_transform(toscale)
@@ -85,6 +85,7 @@ def build_trajectories(df,state_space,action_space):
     #instantiate the list of states, actions,... where the ith value in the list is the value at the ith timestep
   
     #iterate through rows which are sorted by charttime at the creation of episode_rows
+    #因为只取了前72小时，18*4=72，所以这里是18
     tdiff = episode_rows.iloc[0]['start_time']
     for row in range(min(18, len(episode_rows))):
       end_index = min(18, len(episode_rows)) - 1
